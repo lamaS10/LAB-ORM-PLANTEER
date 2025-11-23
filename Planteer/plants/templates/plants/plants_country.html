@@ -1,0 +1,20 @@
+{% extends "main/base.html" %}
+
+{% block content %}
+
+<div class="plants-container">
+
+    <h1 class="page-title">Plants Native to {{ country.name }}</h1>
+    <p class="page-subtitle">{{ count }} plants found</p>
+
+    <div class="cards-grid">
+        {% for plant in plants %}
+            {% include 'plants/plant_card.html' with plant=plant %}
+        {% empty %}
+            <p>No plants found for this country.</p>
+        {% endfor %}
+    </div>
+
+</div>
+
+{% endblock %}

@@ -3,33 +3,50 @@
 
 {% block content %}
 
-    <section class="all-plants-section">
+<section class="all-plants-section">
 
-        <div class="plants-container">
-            
-            <h1 class="page-title">All Plants ({{ count }})</h1>
-            <p class="page-subtitle">Explore all available plants</p>
+    <div class="plants-container">
+        
+        <h1 class="page-title">All Plants ({{ count }})</h1>
+        <p class="page-subtitle">Explore all available plants</p>
 
-            <div class="cards-grid">
-                {% for plant in plants %}
-                    <a href="{% url 'plants:plants_detail_view' plant.id %}" class="card-link">
-                        <article class="plant-card">
-                            <img src="{{ plant.image.url }}" alt="{{ plant.name }}" class="plant-img">
+        <div class="filters-container">
+        
+            <form method="GET" class="filters-form">
 
-                            <div class="plant-card-body">
-                                <h3 class="plant-name">{{ plant.name }}</h3>
-                                <p class="plant-category">{{ plant.category }}</p>
-                            </div>
-                        </article>
-                    </a>
-                {% empty %}
-                    <p>No plants found.</p>
-                {% endfor %}
-            </div>
+                <input type="text" name="search" placeholder="Search plants..." class="filter-input">
 
-        </div>   
 
-    </section>
+                <select name="country" class="filter-select">
+                    <option value="ALL">All Countries</option>
+                    {% for c in countries %}
+                        <option value="{{ c.id }}">{{ c.name }}</option>
+                    {% endfor %}
+                </select>
 
+
+                <select name="category" class="filter-select">
+                    <option value="ALL">All Categories</option>
+                    {% for choice in categories %}
+                        <option value="{{ choice.value }}">{{ choice.label }}</option>
+                    {% endfor %}
+                </select>
+
+                
+                <button type="submit" class="filter-btn">Apply</button>
+            </form>
+        </div>
+
+        <div class="cards-grid">
+
+            {% for plant in plants %}
+                {% include 'plants/plant_card.html' with plant=plant %}
+            {% endfor %}
+
+        </div>
+
+    </div>   
+
+</section>
 
 {% endblock %}

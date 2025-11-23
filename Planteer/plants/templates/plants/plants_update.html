@@ -41,6 +41,7 @@
                     </div>
                 </div>
 
+
                 <div class="form-right">
                     <p class="current-img-title">Current Image</p>
                     <img src="{{ plant.image.url }}" class="current-img">
@@ -50,6 +51,22 @@
                 </div>
 
             </div> 
+
+            <label>Countries</label>
+            <div class="countries-list">
+                {% for country in countries %}
+                    <label class="country-checkbox" style="display:flex; gap:8px; align-items:center; margin-bottom:6px;">
+                        <input 
+                            type="checkbox" 
+                            name="countries" 
+                            value="{{ country.id }}"
+                            {% if country in plant.countries.all %}checked{% endif %}
+                        >
+                        <span>{{ country.name }}</span>
+                    </label>
+                {% endfor %}
+            </div>
+
 
             <button type="submit" class="update-btn">Update Plant</button>
 

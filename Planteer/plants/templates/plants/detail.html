@@ -21,6 +21,23 @@
 
         <p><strong>Used For:</strong> {{ plant.used_for }}</p>
 
+        <div class="plant-countries">
+            <h3>Native Countries:</h3>
+
+            <div class="country-badges">
+                {% for country in plant.countries.all %}
+                    <a href="{% url 'plants:plants_country_view' country.id %}" class="country-badge">
+                        <img src="{{ country.flag.url }}" class="flag-icon">
+                        {{ country.name }}
+                    </a>
+                {% empty %}
+                    <p>No country added</p>
+                {% endfor %}
+            </div>
+        </div>
+
+
+
         <div class="detail-buttons">
             <a href="{% url 'plants:plants_update_view' plant.id %}" class="btn-edit">Edit</a>
             <a 
@@ -42,11 +59,8 @@
 <div class="related-wrapper">
     {% if related_plants %}
         {% for item in related_plants %}
-            <a href="{% url 'plants:plants_detail_view' item.id %}" class="related-card">
-                <img src="{{ item.image.url }}">
-                <h4>{{ item.name }}</h4>
-                <p>{{ item.get_category_display }}</p>
-            </a>
+            {% include 'plants/plant_card.html' with plant=item %}
+
         {% endfor %}
     {% else %}
         <p class="no-related">No related plants available.</p>

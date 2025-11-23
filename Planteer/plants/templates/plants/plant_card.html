@@ -1,0 +1,24 @@
+
+
+
+<a href="{% url 'plants:plants_detail_view' plant.id %}" class="card-link">
+    <article class="plant-card">
+        <img src="{{ plant.image.url }}" alt="{{ plant.name }}" class="plant-img">
+
+        <div class="plant-card-body">
+            <h3 class="plant-name">{{ plant.name }}</h3>
+            <p class="plant-category">{{ plant.category }}</p>
+
+            {% if plant.countries.all %}
+            <div class="card-countries">
+                {% for country in plant.countries.all %}
+                    <span class="country-tag">
+                        <img src="{{ country.flag.url }}" class="flag-icon-sm">
+                        {{ country.name }}
+                    </span>
+                {% endfor %}
+            </div>
+            {% endif %}
+        </div>
+    </article>
+</a>

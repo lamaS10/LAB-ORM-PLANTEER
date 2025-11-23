@@ -39,6 +39,18 @@
             <span>Edible?</span>
         </label>
 
+        <label class="form-label">Countries</label>
+        <div class="countries-list">
+            {% for country in countries %}
+                <label class="country-checkbox">
+                    <input type="checkbox" name="countries" value="{{ country.id }}">
+                    <img src="{{ country.flag.url }}" width="25" style="border-radius:5px;">
+                    {{ country.name }}
+                </label>
+            {% endfor %}
+        </div>
+
+
         <button type="submit" class="submit-btn">Add Plant</button>
     </form>
 
