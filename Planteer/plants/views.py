@@ -88,22 +88,19 @@ def plants_list_view(request):
     countries = Country.objects.all()
     categories = Plant.CategoryChoices
 
-    # Search
     search_query = request.GET.get("search")
     if search_query:
         plants = plants.filter(name__icontains=search_query)
 
-    # Filter by category
     category_filter = request.GET.get("category")
     if category_filter and category_filter != "ALL":
         plants = plants.filter(category=category_filter)
 
-    # Filter by country
     country_filter = request.GET.get("country")
     if country_filter and country_filter != "ALL":
         plants = plants.filter(countries__id=country_filter)
 
-    plants = plants.distinct()  # important for m2m filtering
+    plants = plants.distinct()  
     count = plants.count()
 
     return render(request, "plants/plants_list.html", {

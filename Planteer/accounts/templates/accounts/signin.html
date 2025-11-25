@@ -1,0 +1,30 @@
+{% extends 'main/base.html' %}
+
+{% block title %} Sign In {% endblock %}
+
+{% block content %}
+
+<div class="form-container">
+
+    <h1 class="form-title">Sign In</h1>
+
+    <form method="POST" action="{% url 'accounts:sign_in' %}{% if 'next' in request.GET %}?next={{request.GET.next}}{% endif %}">
+        {% csrf_token %}
+
+        <label class="form-label">Username</label>
+        <input type="text" name="username" class="form-input" placeholder="Enter your username" required>
+
+        <label class="form-label">Password</label>
+        <input type="password" name="password" class="form-input" placeholder="Enter your password" required>
+
+        <button type="submit" class="form-btn">Sign In</button>
+
+        <p class="form-footer">
+            Don't have an account?
+            <a href="{% url 'accounts:sign_up' %}">Create one</a>
+        </p>
+    </form>
+
+</div>
+
+{% endblock %}

@@ -104,6 +104,44 @@ body {
         display: flex;
     }
 }
+.nav-right a {
+    margin-left: 12px;
+}
+
+.btn-nav {
+    background: #333;
+    color: white !important;
+    padding: 10px 16px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.btn-nav:hover {
+    background: #111;
+}
+
+.nav-auth-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 6px 8px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+    text-decoration: none;
+}
+
+.nav-auth-btn .material-icons {
+    font-size: 18px;
+    line-height: 0;
+}
+
+.nav-auth-btn:hover {
+    background: #f2f2f2;
+}
 
 /* home  */
 
@@ -1287,4 +1325,57 @@ body {
     align-items: center;
     gap: 10px;               
     font-size: 15px;
+}
+
+
+.form-container {
+    width: 100%;
+    max-width: 520px;
+    background: white;
+    padding: 32px;
+    margin: 40px auto;
+    border-radius: 18px;
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.08);
+}
+
+.form-title {
+    margin-bottom: 20px;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.form-label {
+    font-weight: 600;
+    margin-bottom: 6px;
+    display: block;
+}
+
+.form-input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 18px;
+    border-radius: 12px;
+    border: 1px solid #ddd;
+}
+
+.form-btn {
+    width: 100%;
+    padding: 14px;
+    border-radius: 12px;
+    border: none;
+    background: #333;   
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.form-btn:hover {
+    background: #111;
+}
+
+.form-footer {
+    margin-top: 14px;
+    text-align: center;
+    font-size: 14px;
 }
