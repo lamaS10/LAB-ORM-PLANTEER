@@ -1,6 +1,3 @@
-
-
-
 <a href="{% url 'plants:plants_detail_view' plant.id %}" class="card-link">
     <article class="plant-card">
         <img src="{{ plant.image.url }}" alt="{{ plant.name }}" class="plant-img">
@@ -10,15 +7,30 @@
             <p class="plant-category">{{ plant.category }}</p>
 
             {% if plant.countries.all %}
-            <div class="card-countries">
-                {% for country in plant.countries.all %}
-                    <span class="country-tag">
-                        <img src="{{ country.flag.url }}" class="flag-icon-sm">
-                        {{ country.name }}
-                    </span>
-                {% endfor %}
+            <div class="card-bottom-row">
+
+                <div class="card-countries">
+                    {% for country in plant.countries.all %}
+                        <span class="country-tag">
+                            <img src="{{ country.flag.url }}" class="flag-icon-sm">
+                            {{ country.name }}
+                        </span>
+                    {% endfor %}
+                </div>
+
+                <div class="review-count">
+                    <span class="material-icons review-icon">chat_bubble_outline</span>
+                    {% if plant.review_count %}
+                        {{ plant.review_count }}
+                    {% else %}
+                        0
+                    {% endif %}
+
+                </div>
+
             </div>
             {% endif %}
+
         </div>
     </article>
 </a>

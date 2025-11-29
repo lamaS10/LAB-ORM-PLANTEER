@@ -58,10 +58,17 @@ body {
 }
 
 .btn-nav {
-    padding: 6px 14px;
-    background: #111827;
-    color: #ffffff !important;
-    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;   
+    justify-content: center;
+    background: #333;
+    color: white !important;
+    padding: 8px 18px;     
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    height: 36px;         
+    line-height: 1;      
     text-decoration: none;
 }
 
@@ -142,6 +149,36 @@ body {
 .nav-auth-btn:hover {
     background: #f2f2f2;
 }
+
+.nav-auth-btn .material-icons,
+.welcome-text .material-icons {
+    font-size: 20px;
+    vertical-align: middle;     
+    line-height: 0;              
+    margin-top: -2px;            
+}
+
+.welcome-text {
+    display: inline-flex;
+    align-items: center;         
+    gap: 6px;
+    font-weight: 600;
+    font-size: 15px;
+    margin-left: 15px;
+    margin-right: 10px;
+    color: #333;
+}
+
+.nav-auth-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+    text-decoration: none;
+}
+
 
 /* home  */
 
@@ -800,6 +837,18 @@ body {
     margin-top: 4px;
 }
 
+.review-user-link {
+    color: #1a6d4e;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.review-user-link:hover {
+    text-decoration: underline;
+    color: #14553c;
+}
+
+
 /* contries */
 
 .country-badges {
@@ -1312,6 +1361,44 @@ body {
     }
 }
 
+/* test*/
+.filters-toggle {
+    display: none;
+}
+
+@media (max-width: 768px) {
+
+    .filters-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        background: #f5f5f5;
+        border: 1px solid #ddd;
+        padding: 12px 14px;
+        border-radius: 10px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        margin-bottom: 12px;
+    }
+
+    .filters-form {
+        display: none;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .filters-form.open {
+        display: flex;
+    }
+
+    .filter-input,
+    .filter-select,
+    .filter-btn {
+        width: 100%;
+    }
+}
 
 .countries-list {
     display: flex;
@@ -1378,4 +1465,248 @@ body {
     margin-top: 14px;
     text-align: center;
     font-size: 14px;
+}
+
+
+.review-signin {
+    color: #444;              
+    text-decoration: none;    
+    font-weight: 600;        
+}
+
+.review-signin:hover {
+    color: #1a73e8;          
+    text-decoration: underline;
+}
+
+
+.card-bottom-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 12px;
+    width: 100%;
+}
+.review-count {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: #f7f7f7;
+    padding: 6px 12px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #555;
+    white-space: nowrap;
+}
+.review-icon {
+    font-size: 18px;
+    color: #666;
+}
+
+
+/*  404 page  */
+
+.notfound-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+}
+
+.notfound-box {
+    text-align: center;
+    background: #ffffff;
+    padding: 40px 30px;
+    border-radius: 20px;
+    max-width: 500px;
+    border: 1px solid #eee;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.05);
+}
+
+.notfound-img {
+    width: 160px;
+    opacity: 0.95;
+    margin-bottom: 20px;
+}
+
+.notfound-title {
+    font-size: 26px;
+    font-weight: 700;
+    color: #2d2d2d;
+    margin-bottom: 10px;
+}
+
+.notfound-text {
+    font-size: 15px;
+    color: #555;
+    margin-bottom: 25px;
+}
+
+.notfound-btn {
+    display: inline-block;
+    background: #333;
+    padding: 12px 22px;
+    color: #fff !important;
+    border-radius: 12px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.notfound-btn:hover {
+    background: #111;
+}
+
+
+/*  profile page  */
+
+.profile-wrapper {
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+.profile-card {
+    background: #ffffff;
+    padding: 30px 40px;
+    border-radius: 20px;
+    max-width: 450px;
+    width: 100%;
+    text-align: center;
+    border: 1px solid #eee;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.05);
+}
+
+.profile-img-box {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.profile-img {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid #f5f5f5;
+}
+
+.profile-name {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: #222;
+}
+
+.profile-username {
+    font-size: 15px;
+    color: #666;
+    margin-bottom: 8px;
+}
+
+.profile-email {
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 14px;
+}
+
+.profile-bio {
+    font-size: 15px;
+    background: #fafafa;
+    padding: 12px 16px;
+    border-radius: 12px;
+    color: #444;
+    margin-bottom: 14px;
+}
+
+.profile-website {
+    display: inline-block;
+    padding: 10px 18px;
+    background: #333;
+    color: #fff !important;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.profile-website:hover {
+    background: #111;
+}
+
+.profile-section-title {
+    font-size: 26px;
+    font-weight: 700;
+    margin: 50px auto 25px auto; 
+    width: 90%;
+    max-width: 900px;            
+    color: #222;
+}
+
+.profile-reviews-box {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    width: 90%;
+    max-width: 900px;              
+    margin: 0 auto 60px auto;     
+}
+
+.profile-review-item {
+    display: block;
+    padding: 18px 20px;
+    background: #ffffff;
+    border-radius: 16px;
+    border: 1px solid #eee;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+    text-decoration: none;
+    color: #333;
+    transition: 0.25s ease;
+}
+
+.profile-review-item:hover {
+    background: #f4f4f4;
+    transform: translateY(-2px);
+}
+
+.review-plant-name {
+    font-size: 17px;
+    font-weight: 700;
+    color: #2a7f5f;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.review-comment {
+    margin-top: 6px;
+    color: #444;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+.review-date {
+    margin-top: 8px;
+    color: #888;
+    font-size: 13px;
+}
+
+.edit-icon-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #4CAF50; 
+    color: white;
+    padding: 10px;
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: 20px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    transition: 0.2s;
+}
+
+.edit-icon-btn:hover {
+    background: #43a047;
+    transform: scale(1.05);
 }

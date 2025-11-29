@@ -1,0 +1,82 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Profile{% endblock %}
+
+{% block content %}
+
+<div class="profile-wrapper">
+
+    <div class="profile-card " style="position: relative;">
+
+        <div class="profile-img-box">
+            <img src="{{ profile_user.userprofile.profile_picture.url }}" alt="Profile Picture" class="profile-img">
+        </div>
+
+        <h2 class="profile-name">
+            {{ profile_user.first_name }} {{ profile_user.last_name }}
+        </h2>
+
+        <p class="profile-username">@{{ profile_user.username }}</p>
+
+        <p class="profile-email">{{ profile_user.email }}</p>
+
+        {% if profile_user.userprofile.bio %}
+        <p class="profile-bio">{{ profile_user.userprofile.bio }}</p>
+        {% endif %}
+
+        {% if profile_user.userprofile.website %}
+        <a href="{{ profile_user.userprofile.website }}" target="_blank" class="profile-website">
+            Visit Website
+        </a>
+        {% endif %}
+
+       
+        {% if request.user.is_authenticated and request.user == profile_user %}
+            <a href="{% url 'accounts:update_profile' %}" 
+            class="edit-icon-btn">
+                <span class="material-icons">edit</span>
+            </a>
+        {% endif %}
+
+
+
+    </div>
+    
+
+</div>
+
+
+<h3 class="profile-section-title">
+    {{ profile_user.first_name|default:profile_user.username }} Reviews
+    <span class="review-count">({{ review_count }} reviews)</span>
+</h3>
+
+
+<div class="profile-reviews-box">
+
+    {% if user_reviews %}
+        {% for review in user_reviews %}
+            <a href="{% url 'plants:plants_detail_view' review.plant.id %}" class="profile-review-item">
+
+                <div class="review-plant-name">
+                    {{ review.plant.name }}
+                </div>
+
+                <div class="review-comment">
+                    "{{ review.comment }}"
+                </div>
+
+                <div class="review-date">
+                    {{ review.created_at|date:"Y-m-d" }}
+                </div>
+
+            </a>
+        {% endfor %}
+    {% else %}
+        <p class="no-reviews-text">No reviews yet.</p>
+    {% endif %}
+
+</div>
+
+{% endblock %}

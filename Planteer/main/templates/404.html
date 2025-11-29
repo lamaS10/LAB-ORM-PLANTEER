@@ -1,0 +1,30 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Page Not Found{% endblock %}
+
+{% block content %}
+
+<div class="notfound-wrapper">
+
+    <div class="notfound-box">
+
+        <img src="https://cdn-icons-png.flaticon.com/512/7486/7486802.png" 
+             alt="Not Found" 
+             class="notfound-img">
+
+        <h2 class="notfound-title">Oops! Page Not Found</h2>
+
+        <p class="notfound-text">
+            The page you're looking for doesn't exist or has been moved.
+        </p>
+
+        <a href="{% url 'main:home_view' %}" class="notfound-btn">
+            Back to Home
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

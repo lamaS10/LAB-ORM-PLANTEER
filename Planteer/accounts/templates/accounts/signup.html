@@ -8,23 +8,42 @@
 
     <h1 class="form-title">Create Account</h1>
 
-    <form method="POST" action="{% url 'accounts:sign_up' %}">
+    <form method="POST" action="{% url 'accounts:sign_up' %}" enctype="multipart/form-data">
         {% csrf_token %}
 
+        <!-- Email -->
         <label class="form-label">Email</label>
         <input type="email" name="email" class="form-input" placeholder="name@example.com" required>
 
+        <!-- Username -->
         <label class="form-label">Username</label>
         <input type="text" name="username" class="form-input" placeholder="Choose a username" required>
 
+        <!-- First Name -->
         <label class="form-label">First Name</label>
         <input type="text" name="first_name" class="form-input" required>
 
+        <!-- Last Name -->
         <label class="form-label">Last Name</label>
         <input type="text" name="last_name" class="form-input" required>
 
+        <!-- Password -->
         <label class="form-label">Password</label>
         <input type="password" name="password" class="form-input" placeholder="Enter password" required>
+
+
+        <!-- Bio -->
+        <label class="form-label">Bio</label>
+        <textarea name="bio" class="form-textarea" placeholder="Write something about yourself..."></textarea>
+
+        <!-- Website -->
+        <label class="form-label">Website</label>
+        <input type="url" name="website" class="form-input" placeholder="https://example.com">
+
+        <!-- Profile Picture -->
+        <label class="form-label">Profile Picture</label>
+        <input type="file" name="profile_picture" class="form-input-file">
+
 
         <button type="submit" class="form-btn">Sign Up</button>
 
@@ -32,6 +51,7 @@
             Already have an account?
             <a href="{% url 'accounts:sign_in' %}">Sign in</a>
         </p>
+
     </form>
 
 </div>

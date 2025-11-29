@@ -1,5 +1,5 @@
 from django.db import models
-from django.utils import timezone
+from django.contrib.auth.models import User
 
 
 
@@ -40,12 +40,12 @@ class Plant(models.Model):
 
 class Review(models.Model):
     plant = models.ForeignKey(Plant,on_delete=models.CASCADE)
-    name=models.CharField(max_length=300)
+    user = models.ForeignKey(User, on_delete=models.CASCADE , null=True, blank=True)
     comment=models.TextField()
     created_at=models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"review name {self.name} for {self.plant.name}"
+        return f"review name {self.user} for {self.plant.name}"
     
 
 

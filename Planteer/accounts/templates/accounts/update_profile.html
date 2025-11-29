@@ -1,0 +1,52 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="form-container">
+
+    <h1 class="form-title">Update Profile</h1>
+
+    <form method="POST" enctype="multipart/form-data" class="plant-form">
+        {% csrf_token %}
+
+        <label class="form-label">First Name</label>
+        <input type="text" name="first_name" class="form-input"
+               value="{{ request.user.first_name }}" required>
+
+        <label class="form-label">Last Name</label>
+        <input type="text" name="last_name" class="form-input"
+               value="{{ request.user.last_name }}" required>
+
+        <label class="form-label">Email</label>
+        <input type="email" name="email" class="form-input"
+               value="{{ request.user.email }}" required>
+
+        <hr class="my-4">
+
+        <label class="form-label">Bio</label>
+        <textarea name="bio" class="form-textarea">{{ request.user.userprofile.bio }}</textarea>
+
+        <label class="form-label">Website</label>
+        <input type="url" name="website" class="form-input"
+               value="{{ request.user.userprofile.website }}">
+
+        <label class="form-label">Profile Picture</label>
+
+        <div class="mb-3">
+            <img src="{{ request.user.userprofile.profile_picture.url }}"
+                 alt="Profile Picture"
+                 style="width:120px; height:120px; border-radius: 50%; object-fit: cover;">
+        </div>
+
+        <input type="file" name="profile_picture" class="form-input-file">
+
+        <button type="submit" class="btn btn-success" style="margin-top:20px;">
+            Save Changes
+        </button>
+
+    </form>
+
+</div>
+
+{% endblock %}

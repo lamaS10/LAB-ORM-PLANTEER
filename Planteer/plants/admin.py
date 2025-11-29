@@ -11,8 +11,8 @@ class PlantAdmin (admin.ModelAdmin):
 
 
 class ReviewAdmin(admin.ModelAdmin):
-    list_display=("name","created_at")
-    list_filter=("name","plant","created_at")
+    list_display=("user","created_at")
+    list_filter=("user","plant","created_at")
 
 
 # Register your models here.
